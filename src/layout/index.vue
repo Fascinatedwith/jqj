@@ -1,116 +1,32 @@
 <template>
-  <div :class="classObj" class="app-wrapper">
-    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-    <!-- 左侧导航栏 -->
-    <sidebar class="sidebar-container" />
-    <div class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
-        <!-- 头部导航栏 -->
-        <navbar />
-
-      </div>
-
-      <!-- tab -->
-
-      <!-- 主体内容 -->
-      <app-main />
-    </div>
+  <div class="content">
+    <router-view />
   </div>
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from './components'
-import ResizeMixin from './mixin/ResizeHandler'
-
 export default {
-  name: 'Layout',
   components: {
-    Navbar,
-    Sidebar,
-    AppMain
+    // 注册组件
   },
-  mixins: [ResizeMixin],
   data() {
     return {
-
+      // 变量
     }
   },
   computed: {
-    sidebar() {
-      return this.$store.state.app.sidebar
-    },
-    device() {
-      return this.$store.state.app.device
-    },
-    fixedHeader() {
-      return this.$store.state.settings.fixedHeader
-    },
-    classObj() {
-      return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
-        withoutAnimation: this.sidebar.withoutAnimation,
-        mobile: this.device === 'mobile'
-      }
-    }
+    // 计算属性
+  },
+  created() {
+    // 生命周期函数 初始化后
+  },
+  mounted() {
+    // 生命周期函数 挂载后
   },
   methods: {
-    handleClickOutside() {
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
-    }
-
+    // 事件执行函数
   }
 }
 </script>
 
-<style lang="scss" scoped>
-  @import "~@/styles/mixin.scss";
-  @import "~@/styles/variables.scss";
-
-  .app-wrapper {
-    @include clearfix;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    &.mobile.openSidebar{
-      position: fixed;
-      top: 0;
-    }
-  }
-  .drawer-bg {
-    background: #000;
-    opacity: 0.3;
-    width: 100%;
-    top: 0;
-    height: 100%;
-    position: absolute;
-    z-index: 999;
-  }
-
-  .fixed-header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 9;
-    width: calc(100% - #{$sideBarWidth});
-    transition: width 0.28s;
-  }
-
-  .hideSidebar .fixed-header {
-    width: calc(100% - 54px)
-  }
-
-  .mobile .fixed-header {
-    width: 100%;
-  }
-  .tags {
-    height: 34px;
-    background-color: #fff;
-    box-shadow:0 3px 10px #ccc;
-    line-height: 34px;
-  }
-  .el-tag--small {
-    margin-left: 5px;
-  }
-
-</style>
+<style scoped lang="scss"></style>

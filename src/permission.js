@@ -7,7 +7,7 @@ router.beforeEach(async(to, from, next) => {
     next() // 去登录页正常放行
   } else {
     // 去其他页面判断是否有token
-    if (store.getters.token) {
+    if (store.token) {
       next()
     } else {
       // 没有token 就返回登录页

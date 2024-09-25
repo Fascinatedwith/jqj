@@ -7,9 +7,7 @@ import '@/styles/index.css'
 import App from './App'
 import store from './store'
 import router from './router'
-import '@/icons' // icon
 import '@/permission' // permission control
-import i18n from './i18n'
 import 'font-awesome/css/font-awesome.min.css'
 Vue.use(ElementUI)
 
@@ -19,7 +17,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  i18n,
   render: h => h(App)
 })
 
