@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="content">
-      江苏传智播客教育科技股份有限公司
+      糕手糕糕的笔记整理系统
     </div>
     <span class="span">正式版</span>
     <!-- 全屏按钮 -->
