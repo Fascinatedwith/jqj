@@ -1,7 +1,14 @@
 <template>
-  <div class="content">
-    <router-view />
-  </div>
+  <el-container>
+    <el-header>
+      <div class="header">
+        <div class="item">1</div>
+      </div>
+    </el-header>
+    <el-main>
+      <router-view />
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -29,4 +36,26 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+}
+.el-container {
+  width: 100%;
+  height: 100%;
+}
+.el-header {
+  padding: 0;
+  height: 80px !important;
+  .header {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+.el-main {
+  padding: 0;
+}
+</style>

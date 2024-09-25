@@ -11,6 +11,12 @@ body {
   text-rendering: optimizeLegibility;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
+* {
+  margin: 0;
+  padding: 0;
+  /* css3盒子模型 */
+  box-sizing: border-box;
+}
 
 label {
   font-weight: 700;

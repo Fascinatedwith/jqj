@@ -3,8 +3,6 @@ const path = require('path')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-const name = process.env.TITLE // page title
-const port = process.env.port // dev port
 module.exports = {
   publicPath: './',
   outputDir: 'dist',
@@ -12,7 +10,7 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
-    port: port,
+    port: 9999,
     open: true,
     overlay: {
       warnings: false,
@@ -28,7 +26,7 @@ module.exports = {
     }
   },
   configureWebpack: {
-    name: name,
+    name: '糕手糕糕的笔记管理平台',
     resolve: {
       alias: {
         '@': resolve('src')

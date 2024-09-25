@@ -30,7 +30,7 @@ service.interceptors.response.use(function(response) {
   // 对响应错误做点什么   处理token超时
   if (error.response && error.response.status === 401 && error.response.data.code === 10002) {
     // 当等于10002的时候 表示 后端告诉我token超时了
-    store.dispatch('user/logout') // 退出登录 删除token
+    // store.dispatch('user/logout') // 退出登录 删除token
     router.push('/login') // 跳转到登录页
     Message('登录过期,请重新登录') // 提示消息
   } else {

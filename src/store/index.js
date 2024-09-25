@@ -5,12 +5,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // state 就是容器  数据保存的位置
   state: {
-    token: '' // 变量名 储存用
+    token: localStorage.getItem('Token') || ''
   },
   // mutations 是方法的集合 修改数据的唯一方式 必须是同步的
   mutations: {
     // setUser 函数名 可自定义
-    setUser(state, token) { // 第一个是固定写法 第二个形参
+    setToken(state, token) { // 第一个是固定写法 第二个形参
+      localStorage.setItem('Token', token)
       state.token = token // 容器里的变量 形参通过调用传入
     }
   },
