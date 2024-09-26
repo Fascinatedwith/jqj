@@ -216,8 +216,9 @@ export default {
   width: 100%;
   height: 100%;
   /* 渐变背景 */
-  background: linear-gradient(200deg, #005bea, #00c6fb);
+  // background: linear-gradient(200deg, #005bea, #00c6fb);
   // background: linear-gradient(to top left, #ffe29f, #ffa99f, #ff719a);
+  background-color: #000;
   overflow: hidden;
 
   #plane {
