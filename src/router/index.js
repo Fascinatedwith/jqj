@@ -11,12 +11,17 @@ export const Routes = [
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
+  },
+  {
+    path: '/',
+    redirect: '/package'
   }
 ]
 // 动态路由
 export const constantRoutes = [
+  // 函数集合
   {
-    path: '/',
+    path: '/package',
     component: Layout,
     key: 'package',
     title: '函数封装集合',
@@ -48,6 +53,11 @@ export const constantRoutes = [
         meta: { title: '冒泡排序' }
       },
       {
+        path: '/FullScreen',
+        component: () => import('@/views/package/FullScreen.vue'),
+        meta: { title: '全屏和退出全屏' }
+      },
+      {
         path: '/accumulate',
         component: () => import('@/views/package/accumulate.vue'),
         meta: { title: '任意数的累计和' }
@@ -64,6 +74,7 @@ export const constantRoutes = [
       }
     ]
   },
+  // 动画集合
   {
     path: '/animation',
     component: Layout,
@@ -74,7 +85,7 @@ export const constantRoutes = [
       {
         path: '/background',
         component: () => import('@/views/animation/background.vue'),
-        meta: { title: '背景色渐变' }
+        meta: { title: '背景颜色渐变' }
       },
       {
         path: '/plane',
@@ -82,7 +93,84 @@ export const constantRoutes = [
         meta: { title: '跟随鼠标的小飞机' }
       }
     ]
+  },
+  // 正则表达式集合
+  {
+    path: '/regular',
+    component: Layout,
+    key: 'regular',
+    title: '正则表达式集合',
+    redirect: '/regularIndex',
+    children: [
+      {
+        path: '/regularIndex',
+        component: () => import('@/views/regular/index.vue'),
+        meta: { title: '常用正则' }
+      }
+    ]
+  },
+  // Echarts图表配置
+  {
+    path: '/Echarts',
+    component: Layout,
+    key: 'Echarts',
+    title: 'Echarts图表配置',
+    redirect: '/EchartsIndex',
+    children: [
+      {
+        path: '/EchartsIndex',
+        component: () => import('@/views/Echarts/index.vue'),
+        meta: { title: '快速上手' }
+      },
+      {
+        path: '/xAxis',
+        component: () => import('@/views/Echarts/xAxis.vue'),
+        meta: { title: 'X轴配置项说明' }
+      }
+    ]
+  },
+  // 第三方插件集合
+  {
+    path: '/plugin',
+    component: Layout,
+    key: 'plugin',
+    title: '第三方包集合',
+    redirect: '/roll',
+    children: [
+      {
+        path: '/roll',
+        component: () => import('@/views/plugin/roll.vue'),
+        meta: { title: '列表滚动' }
+      },
+      {
+        path: '/ScaleBox',
+        component: () => import('@/views/plugin/ScaleBox.vue'),
+        meta: { title: '大屏适配' }
+      }
+    ]
+  },
+  // 组件封装集合
+  {
+    path: '/assembly',
+    component: Layout,
+    key: 'assembly',
+    title: '组件封装集合',
+    redirect: '/tree',
+    children: [
+      {
+        path: '/tree',
+        component: () => import('@/views/assembly/tree.vue'),
+        meta: { title: 'Tree树形组件' }
+      },
+      {
+        path: '/sortable',
+        component: () => import('@/views/assembly/sortable.vue'),
+        meta: { title: 'sortable拖拽排序' }
+      }
+    ]
   }
+  // 笔记集合
+
 ]
 
 const createRouter = () =>

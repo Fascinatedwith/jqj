@@ -96,7 +96,7 @@ export default {
 }
 .container {
   width: 1400px;
-  height: 100%;
+  height: calc(100% - 60px);
   margin: 0 auto;
   display: flex;
   transition: all 0.5s;
