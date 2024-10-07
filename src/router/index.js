@@ -19,7 +19,7 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     key: 'package',
-    title: '封装方法集合',
+    title: '函数封装集合',
     redirect: '/deepCopy',
     children: [
       {
