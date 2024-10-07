@@ -5,7 +5,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // state 就是容器  数据保存的位置
   state: {
-    token: localStorage.getItem('Token') || '',
+    token: sessionStorage.getItem('Token') || '',
     // 主题切换
     theme: false
   },
@@ -13,7 +13,7 @@ export default new Vuex.Store({
   mutations: {
     // 函数名 可自定义
     setToken(state, token) { // 第一个是固定写法 第二个形参
-      localStorage.setItem('Token', token)
+      sessionStorage.setItem('Token', token)
       state.token = token // 容器里的变量 形参通过调用传入
     },
     // 主题切换
