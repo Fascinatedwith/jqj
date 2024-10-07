@@ -5,23 +5,27 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
-
-export const constantRoutes = [
+// 固定路由
+export const Routes = [
   {
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
-  },
+  }
+]
+// 动态路由
+export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    key: 'Home',
-    redirect: '/home',
+    key: 'package',
+    title: '封装方法集合',
+    redirect: '/deepCopy',
     children: [
       {
-        path: '/home',
-        component: () => import('@/views/home/index'),
-        meta: { title: 'home', icon: 'home' }
+        path: '/deepCopy',
+        component: () => import('@/views/package/deepCopy.vue'),
+        meta: { title: '深拷贝' }
       }
     ]
   }
@@ -31,7 +35,7 @@ const createRouter = () =>
   new Router({
     // mode: 'history', // require service support
     scrollBehavior: () => ({ y: 0 }), // 管理滚动行为 如果出现滚动 切换就让 让页面回到顶部
-    routes: constantRoutes
+    routes: [...Routes, ...constantRoutes]
 
   })
 

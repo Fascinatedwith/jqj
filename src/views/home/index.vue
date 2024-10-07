@@ -1,5 +1,7 @@
 <template>
-  <div class="content">home</div>
+  <div class="content">
+    home
+  </div>
 </template>
 
 <script>
@@ -9,7 +11,6 @@ export default {
   },
   data() {
     return {
-      // 变量
     }
   },
   computed: {
@@ -31,5 +32,6 @@ export default {
 .content {
   width: 100%;
   height: 100%;
+  background-color: pink;
 }
 </style>
