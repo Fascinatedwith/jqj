@@ -26,6 +26,60 @@ export const constantRoutes = [
         path: '/deepCopy',
         component: () => import('@/views/package/deepCopy.vue'),
         meta: { title: '深拷贝' }
+      },
+      {
+        path: '/timer',
+        component: () => import('@/views/package/timer.vue'),
+        meta: { title: '防抖和节流' }
+      },
+      {
+        path: '/Fibonacci',
+        component: () => import('@/views/package/Fibonacci.vue'),
+        meta: { title: '斐波那契数列' }
+      },
+      {
+        path: '/tranListToTreeData',
+        component: () => import('@/views/package/tranListToTreeData.vue'),
+        meta: { title: '列表数据转为树形' }
+      },
+      {
+        path: '/bubbleSort',
+        component: () => import('@/views/package/bubbleSort.vue'),
+        meta: { title: '冒泡排序' }
+      },
+      {
+        path: '/accumulate',
+        component: () => import('@/views/package/accumulate.vue'),
+        meta: { title: '任意数的累计和' }
+      },
+      {
+        path: '/ColorRandom',
+        component: () => import('@/views/package/ColorRandom.vue'),
+        meta: { title: '随机十六进制颜色' }
+      },
+      {
+        path: '/countDown',
+        component: () => import('@/views/package/countDown.vue'),
+        meta: { title: '现在到目标日期的剩余时间' }
+      }
+    ]
+  },
+  {
+    path: '/animation',
+    component: Layout,
+    key: 'animation',
+    title: '动画封装集合',
+    redirect: '/background',
+    children: [
+      {
+        path: '/background',
+        component: () => import('@/views/animation/background.vue'),
+        meta: { title: '背景色渐变' }
+      },
+      {
+        path: '/plane',
+        component: () => import('@/views/animation/plane.vue'),
+        meta: { title: '跟随鼠标的小飞机' }
       }
     ]
   }

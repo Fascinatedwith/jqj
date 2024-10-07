@@ -29,7 +29,7 @@
         <!-- 菜单列表 -->
         <div v-for="menuItem in menuList" :key="menuItem.key" class="menu">
           <span class="menu-title" :class="{menuTitleTheme:theme}">{{ menuItem.title }}</span>
-          <div v-for="(item,i) in menuItem.children" v-show="menuItem.children && menuItem.children.length" :key="i" :class="{childrenItemTheme:theme , menuAct:item.path==routePath}" class="children-item" @click.stop="$router.push(item.path)">{{ item.meta.title }}</div>
+          <div v-for="(item,i) in menuItem.children" v-show="menuItem.children && menuItem.children.length" :key="i" :class="{childrenItemTheme:theme , menuAct:item.path==$route.path}" class="children-item" @click.stop="$router.push(item.path)">{{ item.meta.title }}</div>
         </div>
 
       </el-aside>
@@ -51,8 +51,7 @@ export default {
   data() {
     return {
       switchValue: false,
-      menuList: [],
-      routePath: '/'
+      menuList: []
     }
   },
   computed: {
@@ -64,7 +63,6 @@ export default {
   },
   mounted() {
     this.menuList = constantRoutes
-    this.routePath = this.$route.path
   },
   methods: {
     // 事件执行函数
