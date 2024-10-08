@@ -208,6 +208,11 @@ export const constantRoutes = [
         meta: { title: '初始化样式' }
       },
       {
+        path: '/layout',
+        component: () => import('@/views/css/layout.vue'),
+        meta: { title: 'flex / grid' }
+      },
+      {
         path: '/box',
         component: () => import('@/views/css/box.vue'),
         meta: { title: '盒子样式' }
