@@ -125,7 +125,12 @@ export const constantRoutes = [
       {
         path: '/xAxis',
         component: () => import('@/views/Echarts/xAxis.vue'),
-        meta: { title: 'X轴配置项说明' }
+        meta: { title: 'X/Y轴配置项说明' }
+      },
+      {
+        path: '/3D',
+        component: () => import('@/views/Echarts/3D.vue'),
+        meta: { title: '3D立体饼图' }
       }
     ]
   },
@@ -168,8 +173,97 @@ export const constantRoutes = [
         meta: { title: 'sortable拖拽排序' }
       }
     ]
+  },
+  // HTML集合
+  {
+    path: '/html',
+    component: Layout,
+    key: 'html',
+    title: 'HTML标签集合',
+    redirect: '/htmlIndex',
+    children: [
+      {
+        path: '/htmlIndex',
+        component: () => import('@/views/html/index.vue'),
+        meta: { title: 'HTML标签' }
+      },
+      {
+        path: '/a',
+        component: () => import('@/views/html/a.vue'),
+        meta: { title: 'A标签' }
+      }
+    ]
+  },
+  // CSS样式集合
+  {
+    path: '/css',
+    component: Layout,
+    key: 'css',
+    title: 'CSS集合',
+    redirect: '/base',
+    children: [
+      {
+        path: '/base',
+        component: () => import('@/views/css/base.vue'),
+        meta: { title: '初始化样式' }
+      },
+      {
+        path: '/box',
+        component: () => import('@/views/css/box.vue'),
+        meta: { title: '盒子样式' }
+      },
+      {
+        path: '/text',
+        component: () => import('@/views/css/text.vue'),
+        meta: { title: '文字样式' }
+      },
+      {
+        path: '/mouse',
+        component: () => import('@/views/css/mouse.vue'),
+        meta: { title: '鼠标样式' }
+      },
+      {
+        path: '/hide',
+        component: () => import('@/views/css/hide.vue'),
+        meta: { title: '显示 / 隐藏' }
+      },
+      {
+        path: '/scroll',
+        component: () => import('@/views/css/scroll.vue'),
+        meta: { title: '滚动条样式' }
+      },
+      {
+        path: '/animationCss',
+        component: () => import('@/views/css/animation.vue'),
+        meta: { title: '动画 / 过渡 / 3D' }
+      },
+      {
+        path: '/selector',
+        component: () => import('@/views/css/selector.vue'),
+        meta: { title: '选择器 / 伪元素' }
+      },
+      {
+        path: '/li',
+        component: () => import('@/views/css/li.vue'),
+        meta: { title: 'li标签样式' }
+      },
+      {
+        path: '/Acss',
+        component: () => import('@/views/css/Acss.vue'),
+        meta: { title: 'a标签样式' }
+      },
+      {
+        path: '/input',
+        component: () => import('@/views/css/input.vue'),
+        meta: { title: 'input样式' }
+      },
+      {
+        path: '/other',
+        component: () => import('@/views/css/other.vue'),
+        meta: { title: '其他样式' }
+      }
+    ]
   }
-  // 笔记集合
 
 ]
 

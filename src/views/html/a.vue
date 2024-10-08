@@ -3,58 +3,42 @@
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      echarts图表的基本使用
+      A标签的多种使用方式
     </div>
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
-    <h3 style="margin: 20px 0;">1. npm下载包</h3>
+    <h3 style="margin: 20px 0;">1. A标签的基础使用</h3>
     <pre class="pre">
       <code class="code">
-        npm install echarts
+        // 新窗口_blank  当前窗口_self
+
+        <code><</code>a href="跳转地址" target="打开方式"><code><</code>/a>
       </code>
     </pre>
 
-    <h3 style="margin: 20px 0;">2. 项目中引入</h3>
+    <h3 style="margin: 20px 0;">2. A标签配合iframe的使用</h3>
     <pre class="pre">
       <code class="code">
-        import * as echarts from 'echarts';
+        // 点击a要跳转的网页渲染到 iframe标签中  iframe标签中的name名要和 a标签的页面打开方式相同
+
+        <code><</code>iframe name="fm" src="" frameborder="0" />
+
+        <code><</code>a href="跳转地址" target="fm"><code><</code>/a>
       </code>
     </pre>
 
-    <h3 style="margin: 20px 0;">3. 使用</h3>
+    <h3 style="margin: 20px 0;">3. A标签快速定位到模块</h3>
     <pre class="pre">
       <code class="code">
-      function onEcharts (){
-        var chartDom = document.getElementById('main');
-        // 重复生成图表时先清除上一个避免构建失败
-        chartDom.removeAttribute('_echarts_instance_')
-        var myChart = echarts.init(chartDom);
-        var option;
+        // 点击a 立即跳转到区域内容模块
 
-        option = {
-          xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: [150, 230, 224, 218, 135, 147, 260],
-              type: 'line'
-            }
-          ]
-        };
+        <code><</code>a href="#title"><code><</code>/a>
 
-        option && myChart.setOption(option);
-        // 图表大小随页面变化
-        window.addEventListener('resize', function () {
-          myChart.resize()
-        })
-      }
+        <code><</code>div id="title">
+          // 区域内容...
+        <code><</code>/div>
       </code>
     </pre>
   </div>

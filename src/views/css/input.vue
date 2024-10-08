@@ -3,60 +3,43 @@
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      echarts图表的基本使用
+      input框的常用样式
     </div>
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
-    <h3 style="margin: 20px 0;">1. npm下载包</h3>
     <pre class="pre">
       <code class="code">
-        npm install echarts
+        input {
+          appearance: slider-vertical;  /* input框垂直 */
+          outline:none;  /* 输入框边框隐藏 */
+
+        }
+
+        /* input框提示文本的颜色 */
+        input::placeholder {
+          color:'';
+        }
+
+        /* 选中后input框的样式 */
+        input:focus {
+          color:'';
+        }
+
+        /* 文本域禁止拉大 */
+        textarea {
+          resize: none;
+        }
+
+        /* 文本域选中时的颜色 */
+        textarea{outline: none;}
+        textarea:focus {
+          border:1px solid #559afe;
+        }
       </code>
     </pre>
 
-    <h3 style="margin: 20px 0;">2. 项目中引入</h3>
-    <pre class="pre">
-      <code class="code">
-        import * as echarts from 'echarts';
-      </code>
-    </pre>
-
-    <h3 style="margin: 20px 0;">3. 使用</h3>
-    <pre class="pre">
-      <code class="code">
-      function onEcharts (){
-        var chartDom = document.getElementById('main');
-        // 重复生成图表时先清除上一个避免构建失败
-        chartDom.removeAttribute('_echarts_instance_')
-        var myChart = echarts.init(chartDom);
-        var option;
-
-        option = {
-          xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: [150, 230, 224, 218, 135, 147, 260],
-              type: 'line'
-            }
-          ]
-        };
-
-        option && myChart.setOption(option);
-        // 图表大小随页面变化
-        window.addEventListener('resize', function () {
-          myChart.resize()
-        })
-      }
-      </code>
-    </pre>
   </div>
 </template>
 

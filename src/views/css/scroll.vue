@@ -3,58 +3,39 @@
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      echarts图表的基本使用
+      常用的滚动条样式
     </div>
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
-    <h3 style="margin: 20px 0;">1. npm下载包</h3>
     <pre class="pre">
       <code class="code">
-        npm install echarts
-      </code>
-    </pre>
+        // 隐藏滚动条
+        ::-webkit-scrollbar {
+          display: none;
+        }
 
-    <h3 style="margin: 20px 0;">2. 项目中引入</h3>
-    <pre class="pre">
-      <code class="code">
-        import * as echarts from 'echarts';
-      </code>
-    </pre>
+        // 常用样式
+        ::-webkit-scrollbar {
+          width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+          background-color: #1e3149;
+        }
+        ::-webkit-scrollbar-thumb {
+          background-color: #2c67a3;
+          border-radius: 10px;
+        }
 
-    <h3 style="margin: 20px 0;">3. 使用</h3>
-    <pre class="pre">
-      <code class="code">
-      function onEcharts (){
-        var chartDom = document.getElementById('main');
-        // 重复生成图表时先清除上一个避免构建失败
-        chartDom.removeAttribute('_echarts_instance_')
-        var myChart = echarts.init(chartDom);
-        var option;
-
-        option = {
-          xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: [150, 230, 224, 218, 135, 147, 260],
-              type: 'line'
-            }
-          ]
-        };
-
-        option && myChart.setOption(option);
-        // 图表大小随页面变化
-        window.addEventListener('resize', function () {
-          myChart.resize()
-        })
-      }
+        // 其他样式
+        ::-webkit-scrollbar { } // 滚动条整体部分
+        ::-webkit-scrollbar-button { } // 滚动条两端的按钮
+        ::-webkit-scrollbar-track { } // 外层轨道
+        ::-webkit-scrollbar-track-piece { } // 内层轨道，滚动条中间部分（除去）
+        ::-webkit-scrollbar-thumb { } // 滚动条里可以拖动的那个
+        ::-webkit-scrollbar-corner { } // 边角
+        ::-webkit-resizer { } // 定义右下角拖动块的样式
       </code>
     </pre>
   </div>

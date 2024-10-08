@@ -3,60 +3,27 @@
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      echarts图表的基本使用
+      其他样式
     </div>
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
-    <h3 style="margin: 20px 0;">1. npm下载包</h3>
+    <h3 style="margin: 20px 0;">1. 页面灰度滤镜</h3>
     <pre class="pre">
       <code class="code">
-        npm install echarts
+        * {
+          margin:0;
+          padding:0;
+          filter:grayscale(1);
+          // 兼容多种浏览器
+          -webkit-filter:grayscale(1);
+          -moz-filter:grayscale(1);
+          -ms-filter:grayscale(1);
+        }
       </code>
     </pre>
 
-    <h3 style="margin: 20px 0;">2. 项目中引入</h3>
-    <pre class="pre">
-      <code class="code">
-        import * as echarts from 'echarts';
-      </code>
-    </pre>
-
-    <h3 style="margin: 20px 0;">3. 使用</h3>
-    <pre class="pre">
-      <code class="code">
-      function onEcharts (){
-        var chartDom = document.getElementById('main');
-        // 重复生成图表时先清除上一个避免构建失败
-        chartDom.removeAttribute('_echarts_instance_')
-        var myChart = echarts.init(chartDom);
-        var option;
-
-        option = {
-          xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: [150, 230, 224, 218, 135, 147, 260],
-              type: 'line'
-            }
-          ]
-        };
-
-        option && myChart.setOption(option);
-        // 图表大小随页面变化
-        window.addEventListener('resize', function () {
-          myChart.resize()
-        })
-      }
-      </code>
-    </pre>
   </div>
 </template>
 

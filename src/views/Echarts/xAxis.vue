@@ -11,12 +11,12 @@
     <!-- 代码示例 -->
     <pre class="pre">
       <code class="code">
-      xAxis: {
+      xAxis/xAxis: {
         id: '',
         show: true, //是否显示x轴
         gridIndex: 0, //轴所在grid索引，默认位于第一个grid
         alignTicks: false, //在多个轴为数值轴的时候，可以开启该配置项自动对齐刻度。只对'value'和'log'类型的轴有效
-        position: 'top', //轴的位置（top/bottom）
+        position: 'top', //X轴的位置（top/bottom）  //Y轴的位置（left/right）
         offset: 0, //轴相对于默认位置的偏移，在相同的position上有多个轴时有用
         type: 'category', //坐标轴类型，值category/value，与y轴呼应，若x轴配置category则y轴配置value
         name: '', //坐标轴名称

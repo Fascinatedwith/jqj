@@ -3,60 +3,33 @@
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      echarts图表的基本使用
+      li标签的样式修改
     </div>
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
-    <h3 style="margin: 20px 0;">1. npm下载包</h3>
+    <h3 style="margin: 20px 0;">li标签的样式修改</h3>
     <pre class="pre">
       <code class="code">
-        npm install echarts
+        li {
+          list-style-type: none;  /* 去掉li 的小圆点 */
+          list-style-type: disc;  /* 实心圆（默认值） */
+          list-style-type: circle;  /* 空心圆 */
+          list-style-type: square;  /* 实心方块 */
+          list-style-type: decimal;  /* 阿拉伯数字 */
+          list-style-type: decimal-leading-zero;  /* 阿拉伯数字补0 */
+          list-style-type: cjk-ideographic;  /* 汉字数码 一 二 */
+          list-style-type: lower-roman;  /* 小写罗马数字 */
+          list-style-type: upper-roman;  /* 大写罗马数字 */
+          list-style-type: lower-alpha;  /* 小写英文字母 */
+          list-style-type: upper-alpha;  /* 大写英文字母 */
+
+          list-style-image: url(./picture.png);  /* 图片代替实心圆 */
+        }
       </code>
     </pre>
 
-    <h3 style="margin: 20px 0;">2. 项目中引入</h3>
-    <pre class="pre">
-      <code class="code">
-        import * as echarts from 'echarts';
-      </code>
-    </pre>
-
-    <h3 style="margin: 20px 0;">3. 使用</h3>
-    <pre class="pre">
-      <code class="code">
-      function onEcharts (){
-        var chartDom = document.getElementById('main');
-        // 重复生成图表时先清除上一个避免构建失败
-        chartDom.removeAttribute('_echarts_instance_')
-        var myChart = echarts.init(chartDom);
-        var option;
-
-        option = {
-          xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: [150, 230, 224, 218, 135, 147, 260],
-              type: 'line'
-            }
-          ]
-        };
-
-        option && myChart.setOption(option);
-        // 图表大小随页面变化
-        window.addEventListener('resize', function () {
-          myChart.resize()
-        })
-      }
-      </code>
-    </pre>
   </div>
 </template>
 

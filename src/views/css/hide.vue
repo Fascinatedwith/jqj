@@ -3,58 +3,28 @@
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      echarts图表的基本使用
+      常用的显示与隐藏
     </div>
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
-    <h3 style="margin: 20px 0;">1. npm下载包</h3>
     <pre class="pre">
       <code class="code">
-        npm install echarts
-      </code>
-    </pre>
+        {
+          overflow: hidden;   /* 溢出隐藏 */
+          overflow: auto;   /* 溢出自动显示滚动条 可 overflow-y: auto;  overflow-x: auto; */
+          overflow: scroll;   /* 显示滚动条 */
 
-    <h3 style="margin: 20px 0;">2. 项目中引入</h3>
-    <pre class="pre">
-      <code class="code">
-        import * as echarts from 'echarts';
-      </code>
-    </pre>
+          visibility: hidden;   /* 隐藏元素 */
+          visibility: visible;   /* 显示元素 */
 
-    <h3 style="margin: 20px 0;">3. 使用</h3>
-    <pre class="pre">
-      <code class="code">
-      function onEcharts (){
-        var chartDom = document.getElementById('main');
-        // 重复生成图表时先清除上一个避免构建失败
-        chartDom.removeAttribute('_echarts_instance_')
-        var myChart = echarts.init(chartDom);
-        var option;
+          opacity: 0;   /* 透明度 0-1 */
 
-        option = {
-          xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [
-            {
-              data: [150, 230, 224, 218, 135, 147, 260],
-              type: 'line'
-            }
-          ]
-        };
+          display: none;  /* 隐藏元素 */
+          display: block;  /* 显示元素 */
 
-        option && myChart.setOption(option);
-        // 图表大小随页面变化
-        window.addEventListener('resize', function () {
-          myChart.resize()
-        })
-      }
+        }
       </code>
     </pre>
   </div>
