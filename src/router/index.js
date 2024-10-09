@@ -19,6 +19,21 @@ export const Routes = [
 ]
 // 动态路由
 export const constantRoutes = [
+  // git集合
+  {
+    path: '/GIT',
+    component: Layout,
+    key: 'GIT',
+    title: 'GIT指令集合',
+    redirect: '/gitIndex',
+    children: [
+      {
+        path: '/gitIndex',
+        component: () => import('@/views/GIT/index.vue'),
+        meta: { title: '常用指令' }
+      }
+    ]
+  },
   // 函数集合
   {
     path: '/package',
@@ -71,6 +86,81 @@ export const constantRoutes = [
         path: '/countDown',
         component: () => import('@/views/package/countDown.vue'),
         meta: { title: '现在到目标日期的剩余时间' }
+      }
+    ]
+  },
+  // CSS样式集合
+  {
+    path: '/css',
+    component: Layout,
+    key: 'css',
+    title: 'CSS集合',
+    redirect: '/base',
+    children: [
+      {
+        path: '/base',
+        component: () => import('@/views/css/base.vue'),
+        meta: { title: '初始化样式' }
+      },
+      {
+        path: '/layout',
+        component: () => import('@/views/css/layout.vue'),
+        meta: { title: 'flex / grid' }
+      },
+      {
+        path: '/box',
+        component: () => import('@/views/css/box.vue'),
+        meta: { title: '盒子样式' }
+      },
+      {
+        path: '/text',
+        component: () => import('@/views/css/text.vue'),
+        meta: { title: '文字样式' }
+      },
+      {
+        path: '/mouse',
+        component: () => import('@/views/css/mouse.vue'),
+        meta: { title: '鼠标样式' }
+      },
+      {
+        path: '/hide',
+        component: () => import('@/views/css/hide.vue'),
+        meta: { title: '显示 / 隐藏' }
+      },
+      {
+        path: '/scroll',
+        component: () => import('@/views/css/scroll.vue'),
+        meta: { title: '滚动条样式' }
+      },
+      {
+        path: '/animationCss',
+        component: () => import('@/views/css/animation.vue'),
+        meta: { title: '动画 / 过渡 / 3D' }
+      },
+      {
+        path: '/selector',
+        component: () => import('@/views/css/selector.vue'),
+        meta: { title: '选择器 / 伪元素' }
+      },
+      {
+        path: '/li',
+        component: () => import('@/views/css/li.vue'),
+        meta: { title: 'li标签样式' }
+      },
+      {
+        path: '/Acss',
+        component: () => import('@/views/css/Acss.vue'),
+        meta: { title: 'a标签样式' }
+      },
+      {
+        path: '/input',
+        component: () => import('@/views/css/input.vue'),
+        meta: { title: 'input样式' }
+      },
+      {
+        path: '/other',
+        component: () => import('@/views/css/other.vue'),
+        meta: { title: '其他样式' }
       }
     ]
   },
@@ -191,81 +281,6 @@ export const constantRoutes = [
         path: '/a',
         component: () => import('@/views/html/a.vue'),
         meta: { title: 'A标签' }
-      }
-    ]
-  },
-  // CSS样式集合
-  {
-    path: '/css',
-    component: Layout,
-    key: 'css',
-    title: 'CSS集合',
-    redirect: '/base',
-    children: [
-      {
-        path: '/base',
-        component: () => import('@/views/css/base.vue'),
-        meta: { title: '初始化样式' }
-      },
-      {
-        path: '/layout',
-        component: () => import('@/views/css/layout.vue'),
-        meta: { title: 'flex / grid' }
-      },
-      {
-        path: '/box',
-        component: () => import('@/views/css/box.vue'),
-        meta: { title: '盒子样式' }
-      },
-      {
-        path: '/text',
-        component: () => import('@/views/css/text.vue'),
-        meta: { title: '文字样式' }
-      },
-      {
-        path: '/mouse',
-        component: () => import('@/views/css/mouse.vue'),
-        meta: { title: '鼠标样式' }
-      },
-      {
-        path: '/hide',
-        component: () => import('@/views/css/hide.vue'),
-        meta: { title: '显示 / 隐藏' }
-      },
-      {
-        path: '/scroll',
-        component: () => import('@/views/css/scroll.vue'),
-        meta: { title: '滚动条样式' }
-      },
-      {
-        path: '/animationCss',
-        component: () => import('@/views/css/animation.vue'),
-        meta: { title: '动画 / 过渡 / 3D' }
-      },
-      {
-        path: '/selector',
-        component: () => import('@/views/css/selector.vue'),
-        meta: { title: '选择器 / 伪元素' }
-      },
-      {
-        path: '/li',
-        component: () => import('@/views/css/li.vue'),
-        meta: { title: 'li标签样式' }
-      },
-      {
-        path: '/Acss',
-        component: () => import('@/views/css/Acss.vue'),
-        meta: { title: 'a标签样式' }
-      },
-      {
-        path: '/input',
-        component: () => import('@/views/css/input.vue'),
-        meta: { title: 'input样式' }
-      },
-      {
-        path: '/other',
-        component: () => import('@/views/css/other.vue'),
-        meta: { title: '其他样式' }
       }
     ]
   }
