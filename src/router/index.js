@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 Vue.use(Router)
 
 /* Layout */
@@ -19,73 +18,48 @@ export const Routes = [
 ]
 // 动态路由
 export const constantRoutes = [
-  // git集合
+  // JS集合
   {
-    path: '/GIT',
+    path: '/JavaScript',
     component: Layout,
-    key: 'GIT',
-    title: 'GIT指令集合',
-    redirect: '/gitIndex',
+    key: 'JavaScript',
+    title: 'JavaScript',
+    redirect: '/Native',
     children: [
       {
-        path: '/gitIndex',
-        component: () => import('@/views/GIT/index.vue'),
-        meta: { title: '常用指令' }
-      }
-    ]
-  },
-  // 函数集合
-  {
-    path: '/package',
-    component: Layout,
-    key: 'package',
-    title: '函数封装集合',
-    redirect: '/deepCopy',
-    children: [
-      {
-        path: '/deepCopy',
-        component: () => import('@/views/package/deepCopy.vue'),
-        meta: { title: '深拷贝' }
+        path: '/Native',
+        component: () => import('@/views/JavaScript/Native.vue'),
+        meta: { title: '原生JS' }
       },
       {
-        path: '/timer',
-        component: () => import('@/views/package/timer.vue'),
-        meta: { title: '防抖和节流' }
+        path: '/Storage',
+        component: () => import('@/views/JavaScript/Storage.vue'),
+        meta: { title: '浏览器存储' }
       },
       {
-        path: '/Fibonacci',
-        component: () => import('@/views/package/Fibonacci.vue'),
-        meta: { title: '斐波那契数列' }
+        path: '/judge',
+        component: () => import('@/views/JavaScript/judge.vue'),
+        meta: { title: '判断语句' }
       },
       {
-        path: '/tranListToTreeData',
-        component: () => import('@/views/package/tranListToTreeData.vue'),
-        meta: { title: '列表数据转为树形' }
+        path: '/array',
+        component: () => import('@/views/JavaScript/array.vue'),
+        meta: { title: '数组方法' }
       },
       {
-        path: '/bubbleSort',
-        component: () => import('@/views/package/bubbleSort.vue'),
-        meta: { title: '冒泡排序' }
+        path: '/object',
+        component: () => import('@/views/JavaScript/object.vue'),
+        meta: { title: '对象方法' }
       },
       {
-        path: '/FullScreen',
-        component: () => import('@/views/package/FullScreen.vue'),
-        meta: { title: '全屏和退出全屏' }
+        path: '/string',
+        component: () => import('@/views/JavaScript/string.vue'),
+        meta: { title: '字符串方法' }
       },
       {
-        path: '/accumulate',
-        component: () => import('@/views/package/accumulate.vue'),
-        meta: { title: '任意数的累计和' }
-      },
-      {
-        path: '/ColorRandom',
-        component: () => import('@/views/package/ColorRandom.vue'),
-        meta: { title: '随机十六进制颜色' }
-      },
-      {
-        path: '/countDown',
-        component: () => import('@/views/package/countDown.vue'),
-        meta: { title: '现在到目标日期的剩余时间' }
+        path: '/function',
+        component: () => import('@/views/JavaScript/function.vue'),
+        meta: { title: '函数方法' }
       }
     ]
   },
@@ -161,6 +135,96 @@ export const constantRoutes = [
         path: '/other',
         component: () => import('@/views/css/other.vue'),
         meta: { title: '其他样式' }
+      }
+    ]
+  },
+  // git集合
+  {
+    path: '/GIT',
+    component: Layout,
+    key: 'GIT',
+    title: 'GIT指令集合',
+    redirect: '/gitIndex',
+    children: [
+      {
+        path: '/gitIndex',
+        component: () => import('@/views/GIT/index.vue'),
+        meta: { title: '常用指令' }
+      }
+    ]
+  },
+  // 状态管理工具集合
+  {
+    path: '/store',
+    component: Layout,
+    key: 'store',
+    title: '状态管理工具',
+    redirect: '/pinia',
+    children: [
+      {
+        path: '/pinia',
+        component: () => import('@/views/store/pinia.vue'),
+        meta: { title: 'pinia' }
+      },
+      {
+        path: '/vuex',
+        component: () => import('@/views/store/vuex.vue'),
+        meta: { title: 'VUEX' }
+      }
+    ]
+  },
+  // 函数集合
+  {
+    path: '/package',
+    component: Layout,
+    key: 'package',
+    title: '函数封装集合',
+    redirect: '/deepCopy',
+    children: [
+      {
+        path: '/deepCopy',
+        component: () => import('@/views/package/deepCopy.vue'),
+        meta: { title: '深拷贝' }
+      },
+      {
+        path: '/timer',
+        component: () => import('@/views/package/timer.vue'),
+        meta: { title: '防抖和节流' }
+      },
+      {
+        path: '/Fibonacci',
+        component: () => import('@/views/package/Fibonacci.vue'),
+        meta: { title: '斐波那契数列' }
+      },
+      {
+        path: '/tranListToTreeData',
+        component: () => import('@/views/package/tranListToTreeData.vue'),
+        meta: { title: '列表数据转为树形' }
+      },
+      {
+        path: '/bubbleSort',
+        component: () => import('@/views/package/bubbleSort.vue'),
+        meta: { title: '冒泡排序' }
+      },
+      {
+        path: '/FullScreen',
+        component: () => import('@/views/package/FullScreen.vue'),
+        meta: { title: '全屏和退出全屏' }
+      },
+      {
+        path: '/accumulate',
+        component: () => import('@/views/package/accumulate.vue'),
+        meta: { title: '任意数的累计和' }
+      },
+      {
+        path: '/ColorRandom',
+        component: () => import('@/views/package/ColorRandom.vue'),
+        meta: { title: '随机十六进制颜色' }
+      },
+      {
+        path: '/countDown',
+        component: () => import('@/views/package/countDown.vue'),
+        meta: { title: '现在到目标日期的剩余时间' }
       }
     ]
   },
