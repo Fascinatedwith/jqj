@@ -173,6 +173,21 @@ export const constantRoutes = [
       }
     ]
   },
+  // 网络请求
+  {
+    path: '/axios',
+    component: Layout,
+    key: 'axios',
+    title: '网络请求',
+    redirect: '/axiosIndex',
+    children: [
+      {
+        path: '/axiosIndex',
+        component: () => import('@/views/axios/index.vue'),
+        meta: { title: 'axios' }
+      }
+    ]
+  },
   // 函数集合
   {
     path: '/package',
@@ -299,12 +314,17 @@ export const constantRoutes = [
       {
         path: '/roll',
         component: () => import('@/views/plugin/roll.vue'),
-        meta: { title: '列表滚动' }
+        meta: { title: 'scroll 列表滚动' }
       },
       {
         path: '/ScaleBox',
         component: () => import('@/views/plugin/ScaleBox.vue'),
-        meta: { title: '大屏适配' }
+        meta: { title: 'ScaleBox 大屏适配' }
+      },
+      {
+        path: '/sortable',
+        component: () => import('@/views/plugin/sortable.vue'),
+        meta: { title: 'sortable 拖拽排序' }
       }
     ]
   },
@@ -319,12 +339,12 @@ export const constantRoutes = [
       {
         path: '/tree',
         component: () => import('@/views/assembly/tree.vue'),
-        meta: { title: 'Tree树形组件' }
+        meta: { title: 'Tree全选反选' }
       },
       {
-        path: '/sortable',
-        component: () => import('@/views/assembly/sortable.vue'),
-        meta: { title: 'sortable拖拽排序' }
+        path: '/treeUp',
+        component: () => import('@/views/assembly/treeUp.vue'),
+        meta: { title: 'Tree按钮排序' }
       }
     ]
   },
@@ -348,7 +368,6 @@ export const constantRoutes = [
       }
     ]
   }
-
 ]
 
 const createRouter = () =>

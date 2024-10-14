@@ -4,38 +4,105 @@
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      js中的判断语句
+      Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式 + 库。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
     </div>
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
-    <h3 style="margin: 20px 0;">1. js中的判断语句</h3>
+    <h3 style="margin: 20px 0;">1. 下包</h3>
     <pre class="pre">
       <code class="code">
+        npm install vuex@next
+      </code>
+    </pre>
 
-        /* 三元表达式  */
-        表达式1 ? 表达式2 : 表达式3;  // 如果表达式1为 true ，则返回表达式2的值，如果表达式1为 false，则返回表达式3的值
+    <h3 style="margin: 20px 0;">2. main.js配置</h3>
+    <pre class="pre">
+      <code class="code">
+        import store from './store/index.js'
 
-        /* if 语句(多分支语句)  */
-        if (条件表达式1) {
-          ...
-        } else if (条件表达式2)  {
-          ...
-        } else {
-          ...
+        const app = new Vue({
+          ...App,
+          store
+        })
+      </code>
+    </pre>
+
+    <h3 style="margin: 20px 0;">3. 创建 store / index.js</h3>
+    <pre class="pre">
+      <code class="code">
+        import Vue from 'vue'
+        import Vuex from 'vuex'
+        Vue.use(Vuex)
+        // store  仓库
+        export default new Vuex.Store({
+          // state 就是容器  数据保存的位置
+          state: {
+            user: ''  // 变量名 储存用
+        },
+        // mutations 是方法的集合 修改数据的唯一方式 必须是同步的
+        mutations: {
+          // setUser 函数名 可自定义
+          setUser (state, user) {//第一个是固定写法 第二个形参
+            state.user = user // 容器里的变量 形参通过调用传入
+          }
+        },
+        // 处理异步操作的地方
+        actions: {
+          // 函数 自定义
+          login(context,payload){//第一个是固定写法 第二个形参
+          }
+        },
+        // 模块  可以将容器里的变量模块单独封装 引入到这里
+        modules: {
+        },
+        getters {
+          user: state => state.user
+        },
+      })
+      </code>
+    </pre>
+
+    <h3 style="margin: 20px 0;">4. vue中使用</h3>
+    <pre class="pre">
+      <code class="code">
+        // 触发mutations里的函数
+        this.$store.commit('自定义函数名', 实参)
+
+        // 触发actions 里的函数
+        this.$store.dispatch('自定义函数名',实参)
+      </code>
+    </pre>
+
+    <h3 style="margin: 20px 0;">5. 获取vuex容器里的值</h3>
+    <pre class="pre">
+      <code class="code">
+        import { mapState } from 'vuex';
+
+        computed: {
+          ...mapState(['user'])
+          // 相当于把vuex里的user变量放到当前页面的data()里 是一个对象
+          // 相当于全局变量  在事件函数里用this.user可以读取
+        },
+        mounted() {  // 生命周期函数自执行  打印测试一下
+          console.log(this.user);  // 用this.可以读取
         }
+      </code>
+    </pre>
 
-        /* switch 语句  */
-        switch( 表达式 ){
-          case value1:
-            // 表达式 等于 value1 时要执行的代码
-            break;
-          case value2:
-            // 表达式 等于 value2 时要执行的代码
-            break;
-          default:
-            // 表达式 不等于任何一个 value 时要执行的代码
+    <h3 style="margin: 20px 0;">6. 获取vuex容器里的geeters</h3>
+    <pre class="pre">
+      <code class="code">
+        import { mapGetters } from 'vuex'  // 引入
+
+        computed: { // 计算属性里
+          ...mapGetters([ // 对应getters里映射出的名字
+            'sidebar'
+          ])
+        }
+        mounted() {  // 生命周期函数自执行  打印测试一下
+          console.log(this.user);  // 用this.可以读取
         }
       </code>
     </pre>
