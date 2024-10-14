@@ -367,6 +367,21 @@ export const constantRoutes = [
         meta: { title: 'A标签' }
       }
     ]
+  },
+  // 实例集合
+  {
+    path: '/example',
+    component: Layout,
+    key: 'example',
+    title: '小实例集合',
+    redirect: '/example1',
+    children: [
+      {
+        path: '/example1',
+        component: () => import('@/views/example/example1/index.vue'),
+        meta: { title: '鼠标悬停发光按钮' }
+      }
+    ]
   }
 ]
 
