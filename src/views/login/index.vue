@@ -194,8 +194,8 @@ export default {
         })
         return
       }
-      if (this.username == 'GSGG' && this.password == 'GSGG') {
-        this.$store.commit('setToken', 'GSGG')
+      if (this.username == 'YDD' && this.password == 'YDD') {
+        this.$store.commit('setToken', 'YDD')
         container.classList.add('success')
         // 延迟跳转
         setTimeout(() => {

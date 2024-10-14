@@ -3,7 +3,6 @@ import router from '@/router'
 import store from '@/store'
 // 判断用户是否登录
 router.beforeEach(async(to, from, next) => {
-  console.log(store)
   if (to.path === '/login') {
     next() // 去登录页正常放行
   } else {

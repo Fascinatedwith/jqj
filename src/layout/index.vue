@@ -1,10 +1,11 @@
 <template>
   <el-container :class="{theme:theme}">
     <!-- 头部导航栏 -->
-    <el-header height="60px">
+    <el-header height="100px">
       <div class="header">
-        <div class="logo">
-          <img src="" alt="">
+        <div class="ico" :class="{icoTheme:theme}">
+          <img src="@/assets/images/ico.png" alt="">
+          亿点点
         </div>
       </div>
     </el-header>
@@ -89,14 +90,27 @@ export default {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  .logo {
+  .ico {
     width: 250px;
     height: 100%;
+    padding-right:  20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 38px;
+    font-family: 默陌狂飞侠客体;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .icoTheme {
+    color: #fff;
   }
 }
 .container {
   width: 1400px;
-  height: calc(100% - 60px);
+  height: calc(100% - 100px);
   margin: 0 auto;
   display: flex;
   transition: all 0.5s;

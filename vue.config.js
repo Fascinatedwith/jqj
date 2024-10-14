@@ -26,7 +26,7 @@ module.exports = {
     }
   },
   configureWebpack: {
-    name: '糕手糕糕的笔记管理平台',
+    name: '亿点点笔记',
     resolve: {
       alias: {
         '@': resolve('src')
