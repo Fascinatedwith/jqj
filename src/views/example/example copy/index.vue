@@ -1,35 +1,32 @@
+
 <template>
   <div class="content" :class="{contentTheme:theme}">
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      背景颜色渐变动画
+      名称
     </div>
+    <!-- 效果演示 -->
+    <h2 style="margin:20px 0;">效果演示</h2>
+    <div style="width: 1000px;height: 200px;" class="examplePreview">
+      <preview />
+    </div>
+
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
+    <h3 style="margin: 20px 0;">1. HTML</h3>
     <pre class="pre">
       <code class="code">
-      // 定义动画
-      @keyframes gradient {
-        50%{
-          background-position: 100% 0%;
-        }
-      }
-      // 使用动画
-      body {
-        /* 100%窗口高度 */
-        height: 100vh;
-        width: 100%;
-        /* 渐变背景 */
-        background: linear-gradient(45deg, rgb(90, 54, 148) 0%, rgb(19, 189, 206) 33%, rgb(0, 148, 217) 66%, rgb(111, 199, 181) 100%);
-        background-size: 400%;
-        background-position: 0% 100%;
-        /* 执行背景渐变动画：动画名 时长 加速后减速 无限次播放 */
-        animation: gradient 7.5s ease-in-out infinite;
-        overflow: hidden;
-      }
+        html
+      </code>
+    </pre>
+
+    <h3 style="margin: 20px 0;">2. CSS</h3>
+    <pre class="pre">
+      <code class="code">
+        css
       </code>
     </pre>
   </div>
@@ -37,9 +34,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import preview from './preview.vue'
 export default {
   components: {
     // 注册组件
+    preview
   },
   data() {
     return {

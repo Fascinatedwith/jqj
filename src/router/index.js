@@ -18,6 +18,21 @@ export const Routes = [
 ]
 // 动态路由
 export const constantRoutes = [
+  // tS集合
+  {
+    path: '/TypeScript',
+    component: Layout,
+    key: 'TypeScript',
+    title: 'TypeScript',
+    redirect: '/TypeScriptIndex',
+    children: [
+      {
+        path: '/TypeScriptIndex',
+        component: () => import('@/views/TypeScript/index.vue'),
+        meta: { title: 'TS类型' }
+      }
+    ]
+  },
   // JS集合
   {
     path: '/JavaScript',
@@ -243,26 +258,6 @@ export const constantRoutes = [
       }
     ]
   },
-  // 动画集合
-  {
-    path: '/animation',
-    component: Layout,
-    key: 'animation',
-    title: '动画封装集合',
-    redirect: '/background',
-    children: [
-      {
-        path: '/background',
-        component: () => import('@/views/animation/background.vue'),
-        meta: { title: '背景颜色渐变' }
-      },
-      {
-        path: '/plane',
-        component: () => import('@/views/animation/plane.vue'),
-        meta: { title: '跟随鼠标的小飞机' }
-      }
-    ]
-  },
   // 正则表达式集合
   {
     path: '/regular',
@@ -368,21 +363,57 @@ export const constantRoutes = [
       }
     ]
   },
-  // 实例集合
+  // jquery集合
   {
-    path: '/example',
+    path: '/jquery',
     component: Layout,
     key: 'example',
-    title: '小实例集合',
+    title: 'jquery',
+    redirect: '/jqueryIndex',
+    children: [
+      {
+        path: '/jqueryIndex',
+        component: () => import('@/views/jquery/index.vue'),
+        meta: { title: '基本使用' }
+      }
+    ]
+  },
+  // 实例 / 动画集合
+  {
+    path: '/animation',
+    component: Layout,
+    key: 'animation',
+    title: '实例 / 动画集合',
     redirect: '/example1',
     children: [
       {
         path: '/example1',
         component: () => import('@/views/example/example1/index.vue'),
         meta: { title: '鼠标悬停发光按钮' }
+      },
+      {
+        path: '/example2',
+        component: () => import('@/views/example/example2/index.vue'),
+        meta: { title: '跟随鼠标的小飞机' }
+      },
+      {
+        path: '/example4',
+        component: () => import('@/views/example/example4/index.vue'),
+        meta: { title: '跟随鼠标的光点拖尾' }
+      },
+      {
+        path: '/example3',
+        component: () => import('@/views/example/example3/index.vue'),
+        meta: { title: '背景颜色动画效果' }
+      },
+      {
+        path: '/example5',
+        component: () => import('@/views/example/example5/index.vue'),
+        meta: { title: '鼠标推动粒子动画' }
       }
     ]
   }
+
 ]
 
 const createRouter = () =>

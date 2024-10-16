@@ -39,6 +39,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
   span {
     position: relative;
     cursor: pointer;

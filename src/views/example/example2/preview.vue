@@ -1,10 +1,9 @@
 
 <template>
   <div class="perview">
-    <span>button</span>
-    <span>button</span>
-    <span>button</span>
-    <span>button</span>
+    <div id="plane">
+      <i class="fa fa-paper-plane" aria-hidden="true" />
+    </div>
   </div>
 </template>
 
@@ -25,9 +24,39 @@ export default {
     // 生命周期函数 初始化后
   },
   mounted() {
+    this.plane()
   },
   methods: {
     // 事件执行函数
+    plane() {
+      const plane = document.getElementById('plane')
+      let deg = 0
+      let ex = 0
+      let ey = 0
+      let vx = 0
+      let vy = 0
+      let count = 0
+      window.addEventListener('mousemove', (e) => {
+        ex = e.x - plane.offsetLeft - plane.clientWidth / 2
+        ey = e.y - plane.offsetTop - plane.clientHeight / 2
+        deg = (360 * Math.atan(ey / ex)) / (2 * Math.PI) + 45
+        if (ex < 0) {
+          deg += 180
+        }
+        count = 0
+      })
+      function draw() {
+        plane.style.transform = 'rotate(' + deg + 'deg)'
+        if (count < 100) {
+          vx += ex / 100
+          vy += ey / 100
+        }
+        plane.style.left = vx + 'px'
+        plane.style.top = vy + 'px'
+        count++
+      }
+      setInterval(draw, 1)
+    }
   }
 }
 </script>
@@ -36,71 +65,20 @@ export default {
 .perview {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  span {
-    position: relative;
-    cursor: pointer;
-    margin: 40px;
-    padding: 10px;
-    color: #21ebff;
-    /* 标准文本 */
-    text-decoration: none;
-    /* 文本单词大写 */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 20px;
-    transition: .5s;
-    overflow: hidden;
-  }
-  span::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 14px;
-    height: 14px;
-    border-left: 2px solid #21ebff;
-    border-top: 2px solid #21ebff;
-    transition: .5s;
-}
-span::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 14px;
-    height: 14px;
-    border-bottom: 2px solid #21ebff;
-    border-right: 2px solid #21ebff;
-    transition: .5s;
-}
-span:hover::after {
-    width: 100%;
-    height: 100%;
-}
-span:hover::before {
-    width: 100%;
-    height: 100%;
-}
-span:hover {
-    background: #21ebff;
-    color: #fff;
-    box-shadow: 0 0 40px #21ebff;
-    transition-delay: .3s;
-    // -webkit-box-reflect: below 0 linear-gradient(transparent,rgba(0 0 0 .4));
-}
-span:nth-child(1) {
-    filter: hue-rotate(100deg);
-}
-span:nth-child(2) {
-    filter: hue-rotate(180deg);
-}
-span:nth-child(3) {
-    filter: hue-rotate(300deg);
-}
+  background-color: #000;
+  border-radius: 20px;
 
+  #plane {
+    color: #fff;
+    font-size: 70px;
+    /* 绝对定位 */
+    position: absolute;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
 }
 
 </style>
