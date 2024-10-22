@@ -20,6 +20,26 @@ export const Routes = [
 export const constantRoutes = [
   // tS集合
   {
+    path: '/construct',
+    component: Layout,
+    key: 'construct',
+    title: '项目构建',
+    redirect: '/vue2',
+    children: [
+      {
+        path: '/vue2',
+        component: () => import('@/views/construct/vue2.vue'),
+        meta: { title: 'vue/cli + vue2' }
+      },
+      {
+        path: '/vue3',
+        component: () => import('@/views/construct/vue3.vue'),
+        meta: { title: 'vite + vue3' }
+      }
+    ]
+  },
+  // tS集合
+  {
     path: '/TypeScript',
     component: Layout,
     key: 'TypeScript',

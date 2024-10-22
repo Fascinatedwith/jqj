@@ -1,53 +1,62 @@
 <template>
-  <div class="content" :class="{contentTheme:theme}">
+  <div class="content" :class="{ contentTheme: theme }">
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      其他样式
+      vue2项目构建
     </div>
     <!-- 分割线 -->
     <div class="br" />
 
     <!-- 代码示例 -->
-    <h3 style="margin: 20px 0;">1. 页面灰度滤镜</h3>
+    <h3 style="margin: 20px 0;">1. npm下载包</h3>
     <pre class="pre">
       <code class="code">
-        * {
-          margin:0;
-          padding:0;
-          filter:grayscale(1);
-          // 兼容多种浏览器
-          -webkit-filter:grayscale(1);
-          -moz-filter:grayscale(1);
-          -ms-filter:grayscale(1);
-        }
+        npm install echarts
       </code>
     </pre>
 
-    <h3 style="margin: 20px 0;">2. 媒体查询</h3>
+    <h3 style="margin: 20px 0;">2. 项目中引入</h3>
     <pre class="pre">
       <code class="code">
-        // 页面宽度小于1080时
-        @media (max-width: 1080px) {
-          .iframe {
-            height: 100% !important;
-          }
-        }
-        // 页面宽度小于1600并大于1080时
-        @media (max-width: 1600px) and (min-width: 1080px) {
-          .iframe {
-            height: 800px !important;
-          }
-        }
-        // 页面宽度大于1600时
-        @media (min-width: 1600px) {
-          .iframe {
-            height: 1000px !important;
-          }
-        }
+        import * as echarts from 'echarts';
       </code>
     </pre>
 
+    <h3 style="margin: 20px 0;">3. 使用</h3>
+    <pre class="pre">
+      <code class="code">
+      function onEcharts (){
+        var chartDom = document.getElementById('main');
+        // 重复生成图表时先清除上一个避免构建失败
+        chartDom.removeAttribute('_echarts_instance_')
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+          xAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [
+            {
+              data: [150, 230, 224, 218, 135, 147, 260],
+              type: 'line'
+            }
+          ]
+        };
+
+        option && myChart.setOption(option);
+        // 图表大小随页面变化
+        window.addEventListener('resize', function () {
+          myChart.resize()
+        })
+      }
+      </code>
+    </pre>
   </div>
 </template>
 
@@ -80,22 +89,26 @@ export default {
 <style scoped lang="scss">
 .content {
   color: #000;
+
   .synopsis {
     font-size: 38px;
     font-weight: 700;
     margin: 40px 0;
   }
+
   .synopsisBox {
     width: 100%;
     padding: 20px;
-    background-color:#f9f9f9 ;
+    background-color: #f9f9f9;
     border-radius: 20px;
   }
+
   .br {
     margin: 50px 0;
     height: 1px;
     background-color: #ccc;
   }
+
   .pre {
     background-color: #2a2c3e;
     color: #fff;
@@ -103,8 +116,9 @@ export default {
     border-radius: 20px;
     font-size: 24px;
     line-height: 35px;
+
     .code {
-      background: linear-gradient(90deg,  #ffc700 0%, #e91e1e 33%, #ac61ee 66%, #00ff88 100%);
+      background: linear-gradient(90deg, #ffc700 0%, #e91e1e 33%, #ac61ee 66%, #00ff88 100%);
       /*设置字体颜色透明*/
       color: transparent;
       /*背景裁剪为文本形式*/
@@ -112,15 +126,17 @@ export default {
     }
   }
 }
+
 // 暗黑主题
 .contentTheme {
   color: #fff !important;
+
   .synopsisBox {
-    background-color:#242424;
+    background-color: #242424;
   }
+
   .pre {
     background-color: #242424;
   }
 }
-
 </style>
