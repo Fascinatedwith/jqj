@@ -18,39 +18,51 @@ export const Routes = [
 ]
 // 动态路由
 export const constantRoutes = [
-  // tS集合
+  // vue笔记
   {
-    path: '/construct',
+    path: '/vue',
     component: Layout,
-    key: 'construct',
-    title: '项目构建',
+    key: 'vue',
+    title: 'VUE笔记',
     redirect: '/vue2',
     children: [
       {
         path: '/vue2',
-        component: () => import('@/views/construct/vue2.vue'),
-        meta: { title: 'vue/cli + vue2' }
+        component: () => import('@/views/note/vue2.vue'),
+        meta: { title: 'vue2' }
       },
       {
         path: '/vue3',
-        component: () => import('@/views/construct/vue3.vue'),
-        meta: { title: 'vite + vue3' }
+        component: () => import('@/views/note/vue3.vue'),
+        meta: { title: 'vue3' }
       }
+
     ]
   },
-  // tS集合
+  // router路由
   {
-    path: '/TypeScript',
+    path: '/router',
     component: Layout,
-    key: 'TypeScript',
-    title: 'TypeScript',
-    redirect: '/TypeScriptIndex',
+    key: 'Router',
+    title: 'VUE路由',
+    redirect: '/routerV2',
     children: [
       {
-        path: '/TypeScriptIndex',
-        component: () => import('@/views/TypeScript/index.vue'),
-        meta: { title: 'TS类型' }
+        path: '/routerV2',
+        component: () => import('@/views/router/routerV2.vue'),
+        meta: { title: 'vue2路由' }
+      },
+      {
+        path: '/routerV3',
+        component: () => import('@/views/router/routerV3.vue'),
+        meta: { title: 'vue3路由' }
+      },
+      {
+        path: '/routerInfo',
+        component: () => import('@/views/router/routerInfo.vue'),
+        meta: { title: '路由守卫' }
       }
+
     ]
   },
   // JS集合
@@ -95,6 +107,21 @@ export const constantRoutes = [
         path: '/function',
         component: () => import('@/views/JavaScript/function.vue'),
         meta: { title: '函数方法' }
+      }
+    ]
+  },
+  // tS集合
+  {
+    path: '/TypeScript',
+    component: Layout,
+    key: 'TypeScript',
+    title: 'TypeScript',
+    redirect: '/TypeScriptIndex',
+    children: [
+      {
+        path: '/TypeScriptIndex',
+        component: () => import('@/views/TypeScript/index.vue'),
+        meta: { title: 'TS类型' }
       }
     ]
   },
@@ -188,6 +215,21 @@ export const constantRoutes = [
       }
     ]
   },
+  // websocket
+  {
+    path: '/webSocket',
+    component: Layout,
+    key: 'webSocket',
+    title: '长连接',
+    redirect: '/webSocketInfo',
+    children: [
+      {
+        path: '/webSocketInfo',
+        component: () => import('@/views/webSocket/index.vue'),
+        meta: { title: 'webSocket' }
+      }
+    ]
+  },
   // 状态管理工具集合
   {
     path: '/store',
@@ -275,21 +317,11 @@ export const constantRoutes = [
         path: '/countDown',
         component: () => import('@/views/package/countDown.vue'),
         meta: { title: '现在到目标日期的剩余时间' }
-      }
-    ]
-  },
-  // 正则表达式集合
-  {
-    path: '/regular',
-    component: Layout,
-    key: 'regular',
-    title: '正则表达式集合',
-    redirect: '/regularIndex',
-    children: [
+      },
       {
-        path: '/regularIndex',
-        component: () => import('@/views/regular/index.vue'),
-        meta: { title: '常用正则' }
+        path: '/console',
+        component: () => import('@/views/package/console.vue'),
+        meta: { title: '控制台打印美化' }
       }
     ]
   },
@@ -323,23 +355,33 @@ export const constantRoutes = [
     path: '/plugin',
     component: Layout,
     key: 'plugin',
-    title: '第三方包集合',
+    title: '第三方插件集合',
     redirect: '/roll',
     children: [
       {
+        path: '/gaode',
+        component: () => import('@/views/plugin/gaode.vue'),
+        meta: { title: '高德地图' }
+      },
+      {
+        path: '/baidu',
+        component: () => import('@/views/plugin/baidu.vue'),
+        meta: { title: '百度地图' }
+      },
+      {
         path: '/roll',
         component: () => import('@/views/plugin/roll.vue'),
-        meta: { title: 'scroll 列表滚动' }
+        meta: { title: '列表滚动' }
       },
       {
         path: '/ScaleBox',
         component: () => import('@/views/plugin/ScaleBox.vue'),
-        meta: { title: 'ScaleBox 大屏适配' }
+        meta: { title: '大屏适配' }
       },
       {
         path: '/sortable',
         component: () => import('@/views/plugin/sortable.vue'),
-        meta: { title: 'sortable 拖拽排序' }
+        meta: { title: '拖拽排序' }
       }
     ]
   },
@@ -398,6 +440,21 @@ export const constantRoutes = [
       }
     ]
   },
+  // 正则表达式集合
+  {
+    path: '/regular',
+    component: Layout,
+    key: 'regular',
+    title: '正则表达式集合',
+    redirect: '/regularIndex',
+    children: [
+      {
+        path: '/regularIndex',
+        component: () => import('@/views/regular/index.vue'),
+        meta: { title: '常用正则' }
+      }
+    ]
+  },
   // 实例 / 动画集合
   {
     path: '/animation',
@@ -406,11 +463,6 @@ export const constantRoutes = [
     title: '实例 / 动画集合',
     redirect: '/example1',
     children: [
-      {
-        path: '/example1',
-        component: () => import('@/views/example/example1/index.vue'),
-        meta: { title: '鼠标悬停发光按钮' }
-      },
       {
         path: '/example2',
         component: () => import('@/views/example/example2/index.vue'),
@@ -422,18 +474,32 @@ export const constantRoutes = [
         meta: { title: '跟随鼠标的光点拖尾' }
       },
       {
+        path: '/example5',
+        component: () => import('@/views/example/example5/index.vue'),
+        meta: { title: '鼠标推动粒子动画' }
+      },
+      {
+        path: '/example6',
+        component: () => import('@/views/example/example6/index.vue'),
+        meta: { title: '鼠标移动粒子连线' }
+      },
+      {
         path: '/example3',
         component: () => import('@/views/example/example3/index.vue'),
         meta: { title: '背景颜色动画效果' }
       },
       {
-        path: '/example5',
-        component: () => import('@/views/example/example5/index.vue'),
-        meta: { title: '鼠标推动粒子动画' }
+        path: '/example1',
+        component: () => import('@/views/example/example1/index.vue'),
+        meta: { title: '鼠标悬停发光按钮' }
+      },
+      {
+        path: '/example7',
+        component: () => import('@/views/example/example7/index.vue'),
+        meta: { title: '日月切换按钮' }
       }
     ]
   }
-
 ]
 
 const createRouter = () =>

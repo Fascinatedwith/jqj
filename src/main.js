@@ -9,6 +9,8 @@ import store from './store'
 import router from './router'
 import '@/permission' // permission control
 import 'font-awesome/css/font-awesome.min.css'
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
