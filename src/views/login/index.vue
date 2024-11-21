@@ -1,9 +1,9 @@
 <template>
   <div class="ContainerLogin">
     <!-- 小飞机 -->
-    <div id="plane">
+    <!-- <div id="plane">
       <i class="fa fa-paper-plane" aria-hidden="true" />
-    </div>
+    </div> -->
     <!-- 粒子画布 -->
     <canvas id="my_canvas" />
     <!-- 登录 -->
