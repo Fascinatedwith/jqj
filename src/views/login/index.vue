@@ -42,7 +42,7 @@ export default {
   },
   mounted() {
     this.init('my_canvas')
-    this.plane()
+    // this.plane()
   },
   methods: {
     // 飞机跟随
@@ -185,6 +185,8 @@ export default {
     },
     // 登录
     onLogin() {
+      this.username = 'YDD'
+      this.password = 'YDD'
       // 要操作的元素
       const container = document.querySelector('.container')
       if (this.username == '' || this.password == '') {

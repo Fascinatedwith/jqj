@@ -3,7 +3,7 @@
     <!-- 简介 -->
     <div class="synopsis">简介</div>
     <div class="synopsisBox">
-      长连接
+      WebSocket 对象提供了用于创建和管理 WebSocket 连接，以及可以通过该连接发送和接收数据的 API
     </div>
     <!-- 分割线 -->
     <div class="br" />
