@@ -347,6 +347,11 @@ export const constantRoutes = [
         path: '/3D',
         component: () => import('@/views/Echarts/3D.vue'),
         meta: { title: '3D立体饼图' }
+      },
+      {
+        path: '/3DA',
+        component: () => import('@/views/Echarts/3DA.vue'),
+        meta: { title: '3D立体柱状图' }
       }
     ]
   },
