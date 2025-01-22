@@ -9,6 +9,7 @@
     <div class="br" />
 
     <!-- 代码示例 -->
+    <h3 style="margin: 20px 0;">1. 利用递归</h3>
     <pre class="pre">
       <code class="code">
       // 递归函数
@@ -33,6 +34,16 @@
       }
       // 使用方法
       deepCopy(新对象, 原始对象)
+      </code>
+    </pre>
+
+    <h3 style="margin: 20px 0;">1. 利用Object.assign</h3>
+    <pre class="pre">
+      <code class="code">
+        const obj = {
+          a:'',
+        }
+        const item = Object.assign({}, obj)
       </code>
     </pre>
   </div>
