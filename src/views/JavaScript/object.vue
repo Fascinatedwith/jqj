@@ -36,9 +36,15 @@
         /*  遍历对象里的value 返回一个数组  */
         var arr =  Object.values(obj)
 
-        /*  JSON 和 JS对象的相互转换  */
+        /*  JSON 和 JS对象的相互转换  具有深拷贝作用 */
         JSON.parse() JSON字符串转对象
         JSON.stringify() JSON对象转JSON字符串
+
+        /*  复制对象  具有深拷贝作用  */
+        const obj = {
+          a:'',
+        }
+        const item = Object.assign({}, obj)
       </code>
     </pre>
   </div>
