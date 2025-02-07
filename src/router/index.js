@@ -79,6 +79,11 @@ export const constantRoutes = [
         meta: { title: '原生JS' }
       },
       {
+        path: '/for',
+        component: () => import('@/views/JavaScript/for.vue'),
+        meta: { title: 'JS循环' }
+      },
+      {
         path: '/Storage',
         component: () => import('@/views/JavaScript/Storage.vue'),
         meta: { title: '浏览器存储' }
